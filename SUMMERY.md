@@ -1,8 +1,15 @@
 * [Github](github/README.md)
   * [使用Github管理代码](github/manage.md)
+ * [图像&矩阵](im_matrix/README.md)
+	 * [图像矩阵](im_matrix/image.md)
 * [OenenCV 学习](opencv/study/imshow.md)
 	* [函数介绍](opencv/function/README.md)
 	  * [waitKey函数](opencv/function/waitk.md)
   * [显示图像](opencv/study/imshow.md) 
   * [显示视频](opencv/study/vedio.md)
+ * [算法介绍](algorithm/README.md)
+	 * [Sobel算子边缘检测](algorithm/sobel.md)
+	 * [非极大值抑制](algorithm/non_max_sup.md)
+	 * [霍夫直线检测](algorithm/hough_l_detect.md)
+	
 	
