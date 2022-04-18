@@ -100,3 +100,18 @@ vector<int> v11(n, n+5) ;      //将数组n的前5个元素作为向量a的初�
 
 ————————————————
 原文链接：https://blog.csdn.net/fuxiaoxiaoyue/article/details/84847967
+
+---
+```cpp
+// [2] 彩色图片通道分离  
+std::vector<cv::Mat> channels;  
+cv::split(*src, channels);
+
+// [1] 初始化  
+*dst = (*src).clone();  
+// [4] 合并返回  
+cv::merge(channels, *dst);
+```
+
+---
+[Opencv 创建图像时，CV_8UC1,CV_32FC3等参数的含义](http://t.csdn.cn/e1ooZ)

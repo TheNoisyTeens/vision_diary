@@ -85,8 +85,8 @@ temp.ptr<uchar>(i)[j] = sum;
     // [1] 初始化
     *dst = (*src).clone();
     // [2] 彩色图片通道分离
-    std::vector<cv::Mat> channels;
-    cv::split(*src, channels);
+    vector<Mat> channels;
+    split(*src, channels);
     // [3] 滤波
     // [3-1] 确定高斯正态矩阵
     double **array = getGaussianArray(n, sigma);
