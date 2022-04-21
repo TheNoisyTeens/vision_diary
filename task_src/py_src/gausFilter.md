@@ -1,4 +1,4 @@
-### [高斯滤波详解 python实现高斯滤波](http://t.csdn.cn/o2C0a)
+## [高斯滤波详解 python实现高斯滤波](http://t.csdn.cn/o2C0a)
 ```python
 import cv2
  
@@ -138,10 +138,12 @@ gaussian_img = np.clip(gaussian_img, 0, 255)
 `numpy.clip(a, a_min, a_max, out=None)`对数组a的元素值进行范围限定
 
 
-
+9.使用切片法对矩阵进行操作
 ```python
-
+gaussian_img[center + x, center + y, c] = np.sum(gaussian_kernel * tmp[x: x + K_size, y: y + K_size, c])
 ```
+>这里方便相乘
+
 
 ```python
 
@@ -162,3 +164,10 @@ gaussian_img = np.clip(gaussian_img, 0, 255)
 #### 学习重点
 矩阵元素值类型
 >涉及到`astype()`函数
+
+#### 方法
+* 一下操作了一个三维矩阵
+>矩阵元素访问`matrix[h,w,c]`
+* 矩阵乘法
+>直接相乘是对应元素相乘
+* 矩阵求和

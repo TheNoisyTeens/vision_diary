@@ -1,4 +1,4 @@
-## 霍夫变换直线检测（Line Detection）原理及示例
+### 霍夫变换直线检测（Line Detection）原理及示例
 ### 霍夫变换（Hough Transform）
 霍夫变换**运用两个坐标空间之间的变换**，将在一个空间中具有相同形状的曲线或直线映射到另一个坐标空间的一个点上形成峰值，从而把检测任意形状的问题转化为**统计峰值问题**。
 >再结合我的笔记看看
@@ -28,3 +28,56 @@
 7.绘制直线、标定角点
 
 3. 
+
+
+----
+### [霍夫(Hough)直线变换（直线检测）](http://t.csdn.cn/xAbvA)
+>python
+### 原理
+首先将一条直线用一个点表示，这样用一个点表示直线上所有的点，一开始人们使用斜截式y=kx+q中的（k，q）来表示一条直线，变换后的空间成为霍夫空间。即：**笛卡尔坐标系中一条直线，对应霍夫空间的一个点**。
+
+反过来同样成立（霍夫空间的一条直线，对应笛卡尔坐标系的一个点）
+
+共线只有一种取值可能
+
+
+
+
+
+
+
+
+
+
+
+
+---
+### [源码分析](http://t.csdn.cn/d1aoc)
+----
+### [使用Point类](http://t.csdn.cn/CYH4n)
+>俗称点类
+
+----
+### [补充](https://blog.csdn.net/yukinoai/article/details/88366564)
+利用滑动条调节：
+-   **threshold**：阈值，只有获得足够交点的极坐标点才被看成是直线
+
+-   **minLineLength**：最小直线长度，比这个短的线都会被忽略。
+-   **maxLineGap**：最大间隔，如果小于此值，这两条直线 就被看成是一条直线。
+```python
+WindowName = 'Approx'  # 窗口名
+cv2.namedWindow(WindowName, cv2.WINDOW_AUTOSIZE)  # 建立空窗口
+ 
+cv2.createTrackbar('threshold', WindowName, 0, 100, nothing)  # 创建滑动条
+cv2.createTrackbar('minLineLength', WindowName, 0, 100, nothing)  # 创建滑动条
+cv2.createTrackbar('maxLineGap', WindowName, 0, 100, nothing)  # 创建滑动条
+ 
+while(1):
+    img = src.copy()
+    threshold = cv2.getTrackbarPos('threshold', WindowName)  # 获取滑动条值
+    minLineLength = 2 * cv2.getTrackbarPos('minLineLength', WindowName)  # 获取滑动条值
+    maxLineGap = cv2.getTrackbarPos('maxLineGap', WindowName)  # 获取滑动条值
+ 
+    lines = cv2.HoughLinesP(edges, 1, np.pi/180, threshold, minLineLength, maxLineGap)
+```
+
